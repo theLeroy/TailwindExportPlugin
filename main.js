@@ -8,10 +8,11 @@
 const scenegraph = require("scenegraph");
 var assets = require("assets");
 
-console.log(assets.colors.get());
-console.log(assets.characterStyles.get());
-
-
+// console.log(assets.colors.get());
+// console.log(assets.characterStyles.get());
+// console.log(assets.characterStyles.get().fill.Color);
+// console.log(assets.characterStyles.get()[0].Color.toHex());
+console.log((assets.characterStyles.get()[0]));
 
 
 // let node = scenegraph.selection.items[0];
