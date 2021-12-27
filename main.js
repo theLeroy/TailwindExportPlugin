@@ -23,9 +23,15 @@ for (let index = 0; index < assets.characterStyles.get().length; index++) {
 
 
     // console.log(element.style)
+    //Push Style
     opt = Object.values(element.style);
-    opt.push(element.name);
 
+    //Push name
+    if (typeof element.name == 'undefined') {
+        opt.push(index)
+    } else {
+        opt.push(element.name)
+    }
 
     //Compress
 
@@ -48,15 +54,22 @@ for (let index = 0; index < assets.characterStyles.get().length; index++) {
 
 
 // Compose url
-let url = 'http://localhost:3000/reciver';
+let url = 'http://localhost:3000/test';
 
 
 
 //Colors
 let colors = []
-assets.colors.get().forEach(clr => {
-    colors.push(clr.color.value)
+assets.colors.get().forEach((clr, index) => {
+    let c = []
+    if (typeof clr.name == 'undefined') {
+        c.push(index)
+    } else {
+        c.push(clr.name)
+    }
 
+    c.push(clr.color.value)
+    colors.push(c)
 });
 // console.log((colors.toString()))
 url += '?c=' + colors.toString();
