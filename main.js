@@ -13,6 +13,8 @@ let output = []
 // console.log(assets.characterStyles.get()[0].Color.toHex());
 // console.log(assets.characterStyles.get()[0].style.fill.value);
 
+
+//Genrate Fonts styles
 for (let index = 0; index < assets.characterStyles.get().length; index++) {
     let opt = []
     let element = assets.characterStyles.get()[index];
@@ -26,18 +28,17 @@ for (let index = 0; index < assets.characterStyles.get().length; index++) {
 
 
     //Compress
-    // if boolean convert to number 
 
     for (let i = 0; i < opt.length; i++) {
+        // if boolean convert to number 
         if (typeof opt[i] == 'boolean') {
             opt[i] = Number(opt[i])
         }
+        // if none convert to 0
         if (opt[i] == 'none') {
             opt[i] = 0
         }
     }
-
-
     output.push(opt);
 }
 
@@ -49,15 +50,25 @@ for (let index = 0; index < assets.characterStyles.get().length; index++) {
 // Compose url
 let url = 'http://localhost:3000/reciver';
 
-output.forEach((element, f) => {
-    console.log('el', element);
-    if (f === 0) {
-        url = url + '?f' + f + '=' + element.toString();
-    }
-    else {
-        url = url + '&f' + f + '=' + element.toString();
-    }
+
+
+//Colors
+let colors = []
+assets.colors.get().forEach(clr => {
+    colors.push(clr.color.value)
 
 });
+// console.log((colors.toString()))
+url += '?c=' + colors.toString();
 
+
+
+// Fonts 
+output.forEach((element, f) => {
+    url += '&f' + f + '=' + element.toString();
+    console.log(url)
+});
+
+
+console.log(url)
 shell.openExternal(url)
