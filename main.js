@@ -54,7 +54,7 @@ for (let index = 0; index < assets.characterStyles.get().length; index++) {
 
 
 // Compose url
-let url = 'http://localhost:3000/test';
+let url = 'http://localhost:3000/reciver';
 
 
 
