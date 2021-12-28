@@ -13,10 +13,16 @@
     "path" : "images/icon@2x.png",
     "width" : 48,
     "height" : 48
+  },
+  {
+    "path" : "images/icon@4x.png",
+    "width" : 144,
+    "height" : 144
   } ],
   "uiEntryPoints" : [ {
     "type" : "menu",
-    "commandId" : "createRectangle"
+    "label": "Export Global Typo and Colors",
+    "commandId" : "runExport"
   } ],
   "version" : "0.0.1"
 }
