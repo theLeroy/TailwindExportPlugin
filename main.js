@@ -23,8 +23,7 @@ module.exports = {
             for (let index = 0; index < assets.characterStyles.get().length; index++) {
                 let opt = []
                 let element = assets.characterStyles.get()[index];
-                element.style.fill = element.style.fill.value;
-
+                element.style.fill = element.style.fill.toHex(true).replaceAll("#", "%23");
 
 
                 // console.log(element.style)
@@ -39,7 +38,6 @@ module.exports = {
                 }
 
                 //Compress
-
                 for (let i = 0; i < opt.length; i++) {
                     // if boolean convert to number 
                     if (typeof opt[i] == 'boolean') {
@@ -73,7 +71,9 @@ module.exports = {
                     c.push(clr.name)
                 }
 
-                c.push(clr.color.value)
+                //Hex always 6 digits and replace # 
+                c.push(clr.color.toHex(true).replaceAll("#", "%23"));
+
                 colors.push(c)
             });
             // console.log((colors.toString()))
@@ -90,7 +90,6 @@ module.exports = {
 
             console.log(url)
             shell.openExternal(url)
-
 
 
 
