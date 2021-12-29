@@ -12,11 +12,13 @@ module.exports = {
 
             let output = []
 
-            // console.log(assets.colors.get());
-            // console.log(assets.characterStyles.get());
+            console.log('-------------------------- Tailwind export Plugin: Export Started -------------------------- ');
+            console.log('Global Colors found: ', assets.colors.get());
+            console.log('Global Character Styles found: ', assets.characterStyles.get());
             // console.log(assets.characterStyles.get().fill.Color);
             // console.log(assets.characterStyles.get()[0].Color.toHex());
             // console.log(assets.characterStyles.get()[0].style.fill.value);
+            console.log('-------------------------- Trying now to Compress and compose Url -------------------------- ');
 
 
             //Genrate Fonts styles
@@ -26,7 +28,6 @@ module.exports = {
                 element.style.fill = element.style.fill.toHex(true).replaceAll("#", "%23");
 
 
-                // console.log(element.style)
                 //Push Style
                 opt = Object.values(element.style);
 
@@ -55,10 +56,8 @@ module.exports = {
             // console.log('output', output);
 
 
-
             // Compose url
             let url = 'http://localhost:3000/reciver';
-
 
 
             //Colors
@@ -84,12 +83,12 @@ module.exports = {
             // Fonts 
             output.forEach((element, f) => {
                 url += '&f' + f + '=' + element.toString();
-                console.log(url)
             });
 
 
-            console.log(url)
+            console.log('Try to call url: ', url)
             shell.openExternal(url)
+            console.log('-------------------------- Tailwind export Plugin: Export Finished -------------------------- ');
 
 
 
