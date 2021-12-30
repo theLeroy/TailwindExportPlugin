@@ -85,6 +85,7 @@ module.exports = {
                 url += '&f' + f + '=' + element.toString();
             });
 
+            url = url.replaceAll(" ", ""); // remove all spaces
 
             console.log('Try to call url: ', url)
             shell.openExternal(url)
