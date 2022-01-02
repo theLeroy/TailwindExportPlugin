@@ -35,7 +35,7 @@ module.exports = {
                 if (typeof element.name == 'undefined') {
                     opt.push(index)
                 } else {
-                    opt.push(element.name)
+                    opt.push(encodeURIComponent(element.name))
                 }
 
                 //Compress
@@ -67,7 +67,7 @@ module.exports = {
                 if (typeof clr.name == 'undefined') {
                     c.push(index)
                 } else {
-                    c.push(clr.name)
+                    c.push(encodeURIComponent(clr.name))
                 }
 
                 //Hex always 6 digits and replace # 
@@ -86,6 +86,7 @@ module.exports = {
             });
 
             url = url.replaceAll(" ", ""); // remove all spaces
+
 
             console.log('Try to call url: ', url)
             shell.openExternal(url)
