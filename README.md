@@ -1,8 +1,9 @@
-# Adobe XD Plugin for Exporting global Colors and Caracter styles to Tailwind Classes
+This is in development!
+# Adobe XD Plugin for Exporting global colors and caracter styles to Tailwind
 
 This Plugin exprts your global Colors and Caracter styles to an self-written converter which converts the data to tailwind classes. the converter is web-based and can be found in a different repo.
 
-[web-based converter](https://github.com/theLeroy/TailwindExportPlugin/releases)
+[web-based converter](https://github.com/theLeroy/XDFormatterReceiver)
 
 ## Installation through Github 
 
